@@ -3,14 +3,8 @@ services:
     name: newspulse
     runtime: python
     plan: free
-    buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput"
-    startCommand: "gunicorn NewsPulse.wsgi:application --bind 0.0.0.0:$PORT"
+    buildCommand: cd NewsPulse && pip install -r requirements.txt && python manage.py collectstatic --noinput
+    startCommand: cd NewsPulse && gunicorn NewsPulse.wsgi:application --bind 0.0.0.0:$PORT
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: NewsPulse.settings
-      - key: PYTHON_VERSION
-        value: 3.11.11
-
-
-
-
