@@ -17,7 +17,7 @@ class NewsView(APIView):
             query = f"{query} {category}".strip()
 
         # Build API URL (BBC + CNN + category filter)
-        url= (f"https://newsapi.org/v2/everything?q={query}&sortBy=publishedAt&apiKey=e3ce85da57194f3cb0110c7218ca8052")   #remove sources=bbc-news,cnn from url as it returns bad response
+        url= (f"https://newsapi.org/v2/everything?q={query}&language=en&sortBy=publishedAt&apiKey=e3ce85da57194f3cb0110c7218ca8052")   #remove sources=bbc-news,cnn from url as it returns bad response
         response= requests.get(url)
 
         if response.status_code == 200:

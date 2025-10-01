@@ -42,9 +42,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
     'news',
     'corsheaders',
+    'articles',
 ]
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -129,6 +136,9 @@ import os
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = 'static/'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
@@ -136,3 +146,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
+AUTH_USER_MODEL = "articles.CustomUser"
+
+""" "articles.CustomUser" = <app_name>.<model_name>
+Why?
+Django has a built-in User model. If not point it to in our new model,
+it will continue using the default one.By setting this, Django will use CustomUser everywhere
+(authentication, UserCreationForm, relationships with ForeignKeys, etc.) """
