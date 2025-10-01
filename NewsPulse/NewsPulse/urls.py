@@ -16,10 +16,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('news.urls')),
-    path('api/auth/', include('articles.urls'))
+    path('api/auth/', include('articles.urls')),
+    path('api/profile/', include('articles.profile_urls')),
 ]
 
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+""" This only runs in development (DEBUG=True).
+It tells Django: “Serve files from MEDIA_ROOT when a browser requests something starting with /media/.”
+In production you don’t use this — your web server (Nginx, Apache, or a cloud storage like S3) serves media files instead.
+Without this, if you hit http://127.0.0.1:8000/media/profiles/john.png in your browser, you’d get a 404. """

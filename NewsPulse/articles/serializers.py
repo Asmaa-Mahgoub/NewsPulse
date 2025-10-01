@@ -39,3 +39,17 @@ class PasswordChangeSerializer(serializers.Serializer):
         user.set_password(self.validated_data['new_password'])
         user.save()
         return user
+    
+class ProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=CustomUser
+        fields=('id', 'username', 'email', 'role', 'first_name', 'last_name', 'bio', 'profile_picture')
+        read_only_fields = ('id', 'role', 'username')
+        
+       
+""" The read_only_fields is a Meta option that makes certain fields read-only:
+They can be seen in responses.
+They cannot be modified in requests (e.g., during PUT/PATCH update).
+id → The user’s primary key. You don’t want clients to send a new ID (it’s auto-generated).
+role → Controlled by admin (Author/Editor), not by users themselves.
+username → You may want it fixed after signup (to avoid impersonation). """

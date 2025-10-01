@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import generics
 from .models import CustomUser
-from .serializers import CustomUserSerializer,PasswordChangeSerializer
+from .serializers import CustomUserSerializer,PasswordChangeSerializer, ProfileSerializer
 # for user logout 
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -36,3 +36,5 @@ class PasswordChangeView(APIView):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response({"message": "Password changed successfully"}, status=status.HTTP_200_OK)
+    
+
