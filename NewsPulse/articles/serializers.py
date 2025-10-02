@@ -29,7 +29,7 @@ class ArticleSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Article
-        fields = ['id', 'title', 'content', 'category', 'tags', 'author', 'published_date']
+        fields = ['id', 'title', 'content', 'category', 'tags', 'author', 'file', 'media_type', 'published_date']
     
 class PasswordChangeSerializer(serializers.Serializer):
     old_password=serializers.CharField()
