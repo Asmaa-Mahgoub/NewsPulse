@@ -32,7 +32,8 @@ class Article(models.Model):
     title=models.CharField(max_length=200)
     content=models.TextField()
     published_date=models.DateTimeField(auto_now_add=True) 
-    author=models.ForeignKey(CustomUser,related_name="articles",on_delete=models.CASCADE )
+    author=models.ForeignKey(CustomUser,related_name="articles",on_delete=models.CASCADE)
+    tags = models.CharField(max_length=200, blank=True, null=True)
     views_count =models.PositiveIntegerField(default=0)
 
     def __str__(self):

@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import SignUpView, LogOutView, PasswordChangeView
+from .views import SignUpView, LogOutView, PasswordChangeView, ArticleListCreateView, ArticleDetailView
 from .profile_views import ProfileDetailView, ProfileUpdateView
 from rest_framework.authtoken.views import obtain_auth_token
 
@@ -17,5 +17,7 @@ urlpatterns=[
     path('login/', obtain_auth_token, name="login"),
     path('logout/',LogOutView.as_view(), name="logout"),
     path('password-change/', PasswordChangeView.as_view(), name='password_change'),
+    path('articles/', ArticleListCreateView.as_view(), name='article-list-create'),
+    path('articles/<int:pk>/', ArticleDetailView.as_view(), name='article-detail'),
     
 ]
