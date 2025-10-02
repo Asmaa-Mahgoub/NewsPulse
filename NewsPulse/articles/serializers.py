@@ -50,7 +50,7 @@ class PasswordChangeSerializer(serializers.Serializer):
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model=CustomUser
-        fields=('id', 'username', 'email', 'role', 'first_name', 'last_name', 'bio', 'profile_picture')
+        fields=('id', 'username', 'email', 'role','bio', 'profile_picture')
         read_only_fields = ('id', 'role', 'username')
         
        
