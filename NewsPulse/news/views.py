@@ -12,7 +12,7 @@ class NewsView(APIView):
         query = request.GET.get("q", "")  
         category= request.GET.get('category', 'general')
         page = int(request.GET.get('page', 1))  # Get current page, default is 1
-        per_page = 4  # Number of articles per page
+        per_page = 6  # Number of articles per page
 
 
         if category:

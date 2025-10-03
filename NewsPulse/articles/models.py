@@ -5,7 +5,7 @@ from django.db import models
 class CustomUser(AbstractUser):
 
     email=models.EmailField(unique=True)
-    role=models.CharField(max_length=50, choices=[('author','Author'), ('editor','Editor')], default='author')
+    role=models.CharField(max_length=50, choices=[('author','Author'), ('admin','Admin')], default='author')
     bio=models.TextField(blank=True, null=True)
     profile_picture=models.ImageField(upload_to='profiles/', blank=True, null=True)
 

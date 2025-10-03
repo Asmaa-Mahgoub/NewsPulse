@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework import generics, permissions
 from .models import CustomUser, Article
 from .serializers import CustomUserSerializer,PasswordChangeSerializer, ProfileSerializer, ArticleSerializer, PasswordResetRequestSerializer
+
 # for user logout 
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -10,6 +11,11 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from django.core.exceptions import PermissionDenied
 from django.utils.http import urlsafe_base64_decode
 from django.contrib.auth.tokens import default_token_generator
+#for login
+
+from rest_framework.authtoken.models import Token
+from django.contrib.auth import authenticate
+
 # To filter articles by the logged-in user and optionally by a search term
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
@@ -17,11 +23,47 @@ from rest_framework import filters
 
 # Create your views here.
 
-class SignUpView(generics.CreateAPIView):
+""" class SignUpView(generics.CreateAPIView):
     queryset= CustomUser.objects.all()
     serializer_class=CustomUserSerializer
     permission_classes = [AllowAny]
+ """
 
+#Login view
+class LoginView(APIView):
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        username = request.data.get("username")
+        password = request.data.get("password")
+        selected_role = request.data.get("role")
+
+        user = authenticate(username=username, password=password)
+
+        if user is not None:
+            # Check if selected role matches actual role
+            if user.role != selected_role:
+                return Response({"error": "Role mismatch. Please select correct role."},
+                                status=status.HTTP_403_FORBIDDEN)
+        # Get or create token
+            token, _ = Token.objects.get_or_create(user=user)
+
+            # Decide redirect URL based on role
+            if user.role == "Admin":  
+                redirect_url = "/admin/dashboard/"
+            elif user.role == "author":
+                redirect_url = f"/profile/{user.id}/"
+            else:
+                redirect_url = "/"
+
+            return Response({
+                "token": token.key,
+                "role": user.role,
+                "redirect_url": redirect_url,
+                "message": "Login successful"
+            }, status=status.HTTP_200_OK)
+
+        return Response({"error": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
 #logout view
 class LogOutView(APIView):
     permission_classes= [IsAuthenticated]

@@ -6,14 +6,14 @@ from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 
-class ProfileDetailView(APIView):
+class ProfileDetailView(APIView):  #Show me my profile
     permission_classes = [IsAuthenticated] #Any request hitting this view must be from a logged-in user.If not, DRF returns 401 Unauthorized.
 
     def get(self, request):
         serializer = ProfileSerializer(request.user)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
-class ProfileUpdateView(APIView):
+class ProfileUpdateView(APIView):  #Edit my profile
     permission_classes = [IsAuthenticated]
 
     def put(self, request):
