@@ -2,6 +2,7 @@ from django.urls import path
 from .views import SignUpView, LogOutView, PasswordChangeView, ArticleListCreateView, ArticleDetailView
 from .profile_views import ProfileDetailView, ProfileUpdateView
 from rest_framework.authtoken.views import obtain_auth_token
+from .views import PasswordResetRequestView, PasswordResetConfirmView
 
 
 """ Django REST Framework (DRF) provides a ready-made login endpoint called obtain_auth_token.
@@ -19,5 +20,7 @@ urlpatterns=[
     path('password-change/', PasswordChangeView.as_view(), name='password_change'),
     path('articles/', ArticleListCreateView.as_view(), name='article-list-create'),
     path('articles/<int:pk>/', ArticleDetailView.as_view(), name='article-detail'),
+    path('password-reset/', PasswordResetRequestView.as_view(), name='password_reset'),
+    path('password-reset-confirm/<uid>/<token>/', PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
     
 ]

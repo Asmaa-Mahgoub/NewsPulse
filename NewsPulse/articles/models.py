@@ -52,15 +52,4 @@ class Article(models.Model):
     
     """ auto_now_add=True, tells Django: “when the record is first created, automatically set this field 
     to the current date and time. While auto_now=True = update every save. """
-""" 
-class Media(models.Model):
-    MEDIA_TYPES = [
-        ('image', 'Image'),
-        ('video', 'Video'),
-    ]
-    article = models.ForeignKey(Article, related_name='media', on_delete=models.CASCADE)
-    file = models.FileField(upload_to='media/')
-    media_type = models.CharField(max_length=10, choices=MEDIA_TYPES)
 
-    def __str__(self):
-        return f"{self.media_type} for {self.article.title}" """

@@ -1,5 +1,8 @@
 from rest_framework import serializers
 from .models import CustomUser, Article
+from django.contrib.auth.tokens import default_token_generator
+from django.utils.encoding import force_bytes
+from django.utils.http import urlsafe_base64_encode
 
 class CustomUserSerializer(serializers.ModelSerializer):
     password=serializers.CharField(write_only=True)
@@ -60,3 +63,24 @@ They cannot be modified in requests (e.g., during PUT/PATCH update).
 id → The user’s primary key. You don’t want clients to send a new ID (it’s auto-generated).
 role → Controlled by admin (Author/Editor), not by users themselves.
 username → You may want it fixed after signup (to avoid impersonation). """
+
+class PasswordResetRequestSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+
+    def validate_email(self, value):
+        if not CustomUser.objects.filter(email=value).exists():
+            raise serializers.ValidationError("No user with this email found.")
+        return value
+
+    def save(self, **kwargs):
+        email = self.validated_data['email']
+        user = CustomUser.objects.get(email=email)
+
+        # Generate reset token and user ID
+        token = default_token_generator.make_token(user)
+        uid = urlsafe_base64_encode(force_bytes(user.pk))
+
+        
+        reset_link = f"http://frontend-app/reset-password/{uid}/{token}/"
+
+        return {"reset_link": reset_link, "uid": uid, "token": token}

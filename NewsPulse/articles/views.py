@@ -1,13 +1,15 @@
 from django.shortcuts import render
 from rest_framework import generics, permissions
 from .models import CustomUser, Article
-from .serializers import CustomUserSerializer,PasswordChangeSerializer, ProfileSerializer, ArticleSerializer
+from .serializers import CustomUserSerializer,PasswordChangeSerializer, ProfileSerializer, ArticleSerializer, PasswordResetRequestSerializer
 # for user logout 
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from django.core.exceptions import PermissionDenied
+from django.utils.http import urlsafe_base64_decode
+from django.contrib.auth.tokens import default_token_generator
 
 # Create your views here.
 
@@ -100,3 +102,37 @@ DELETE /articles/<pk>/ → delete an article """
 It retrieves the model instance that matches the URL parameter (pk) of the current request.
 Example: If the URL is /api/articles/5/, then self.get_object() will fetch the article with id=5.
 So here, self.get_object() → gives the Article object that is being retrieved/updated/deleted. """
+
+class PasswordResetRequestView(APIView):
+    def post(self, request):
+        serializer = PasswordResetRequestSerializer(data=request.data)
+        if serializer.is_valid():
+            data = serializer.save()
+            # Normally you'd send email here using send_mail
+            return Response({"message": "Password reset link generated", "data": data}, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class PasswordResetConfirmView(APIView):
+    def post(self, request, uid, token):
+        new_password = request.data.get("new_password")
+
+        if not new_password:
+            return Response({"error": "New password is required"}, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            # Decode UID
+            user_id = urlsafe_base64_decode(uid).decode()
+            user = CustomUser.objects.get(pk=user_id)
+        except (TypeError, ValueError, OverflowError, CustomUser.DoesNotExist):
+            return Response({"error": "Invalid UID"}, status=status.HTTP_400_BAD_REQUEST)
+
+        # Check token validity
+        if not default_token_generator.check_token(user, token):
+            return Response({"error": "Invalid or expired token"}, status=status.HTTP_400_BAD_REQUEST)
+
+        # Set new password
+        user.set_password(new_password)
+        user.save()
+
+        return Response({"message": "Password reset successful"}, status=status.HTTP_200_OK)
