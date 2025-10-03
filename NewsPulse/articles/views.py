@@ -10,6 +10,10 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from django.core.exceptions import PermissionDenied
 from django.utils.http import urlsafe_base64_decode
 from django.contrib.auth.tokens import default_token_generator
+# To filter articles by the logged-in user and optionally by a search term
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters
+
 
 # Create your views here.
 
@@ -43,9 +47,26 @@ class PasswordChangeView(APIView):
     
 # List + Create
 class ArticleListCreateView(generics.ListCreateAPIView): #GET /articles/ → list all articles.POST /articles/ → create a new article.
-    queryset = Article.objects.all().order_by('-published_date')
+    #queryset = Article.objects.all().order_by('-published_date')
     serializer_class = ArticleSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    filter_backends = [filters.SearchFilter]  # enable search
+    search_fields = ['author__email', 'author__username', 'title']  # searchable fields
+
+    def get_queryset(self): #overrides the default queryset for the view.
+        user = self.request.user
+        queryset = Article.objects.all().order_by('-published_date')
+
+        # Only filter by author if the user is authenticated
+        if user.is_authenticated:
+            # Optional: If you want authors to only see their own articles:
+            queryset = queryset.filter(author=user)
+
+            # Optional: if search query parameter 'search' exists, DRF SearchFilter will handle it
+        else:
+            # unauthenticated users only see public articles if needed
+            queryset = queryset.none()
+        return queryset
 
     def perform_create(self, serializer):
         # Automatically set the logged-in user as author
