@@ -47,7 +47,6 @@ class PasswordChangeView(APIView):
     
 # List + Create
 class ArticleListCreateView(generics.ListCreateAPIView): #GET /articles/ → list all articles.POST /articles/ → create a new article.
-    #queryset = Article.objects.all().order_by('-published_date')
     serializer_class = ArticleSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     filter_backends = [filters.SearchFilter]  # enable search
