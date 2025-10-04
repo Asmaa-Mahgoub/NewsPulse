@@ -8,7 +8,7 @@ class CustomUserSerializer(serializers.ModelSerializer):
     password=serializers.CharField(write_only=True)
     class Meta:
         model=CustomUser
-        fields=('id','username', 'email', 'password', 'role', 'bio', 'profile_picture')
+        fields=('id','username', 'email', 'password', 'role')
 
     def create(self, validated_data):
         password=validated_data.pop("password")
@@ -53,7 +53,7 @@ class PasswordChangeSerializer(serializers.Serializer):
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model=CustomUser
-        fields=('id', 'username', 'email', 'role','bio', 'profile_picture')
+        fields=('id', 'username', 'email', 'role')
         read_only_fields = ('id', 'role', 'username')
         
        
