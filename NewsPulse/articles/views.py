@@ -52,7 +52,7 @@ class LoginView(APIView):
 
             # Decide redirect URL based on role
             if user.role == "admin":  
-                redirect_url = "/admin/dashboard/"
+                redirect_url = "/admin/"
             elif user.role == "author":
                 redirect_url = f"/profile/{user.id}/"
             else:
