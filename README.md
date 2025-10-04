@@ -1,4 +1,4 @@
-##NewsPulse – Full-Stack News Aggregation & Articles Management Platform##
+#NewsPulse – Full-Stack News Aggregation & Articles Management Platform
 Project Description
 NewsPulse is a full-stack news platform built with Django REST Framework (backend) and React.js (frontend):
 1.	News API Integration: Fetches and displays latest news from external APIs, supports keyword search, category filtering, and pagination.
