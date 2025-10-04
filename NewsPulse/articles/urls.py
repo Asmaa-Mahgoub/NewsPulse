@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import LogOutView, LoginView, PasswordChangeView, ArticleListCreateView, ArticleDetailView
+from .views import LogOutView, LoginView, PasswordChangeView, ArticleListCreateView, ArticleDetailView, ArticleListAPIView
 from .profile_views import ProfileDetailView, ProfileUpdateView
 from rest_framework.authtoken.views import obtain_auth_token
 from .views import PasswordResetRequestView, PasswordResetConfirmView
@@ -15,6 +15,7 @@ Frontend apps usually automate this by saving the token once and attaching it on
 
 urlpatterns=[
     #path('signup/',SignUpView.as_view(), name='signup'),
+    path('fetch_articles/', ArticleListAPIView.as_view(), name='api-articles'),
     path('login/', LoginView.as_view(), name='login'),
     #path('login/', obtain_auth_token, name="login"),
     path('logout/',LogOutView.as_view(), name="logout"),

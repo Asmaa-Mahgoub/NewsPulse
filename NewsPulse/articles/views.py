@@ -21,6 +21,13 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
 
 
+class ArticleListAPIView(APIView):
+    def get(self, request):
+        articles = Article.objects.all().order_by('-published_date')  # latest articles first
+        serializer = ArticleSerializer(articles, many=True)
+        return Response(serializer.data)
+
+
 # Create your views here.
 
 """ class SignUpView(generics.CreateAPIView):
