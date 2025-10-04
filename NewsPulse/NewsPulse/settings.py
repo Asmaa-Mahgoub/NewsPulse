@@ -9,6 +9,9 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
+""" from decouple import config
+
+HF_API_KEY = config("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") """
 
 from pathlib import Path
 

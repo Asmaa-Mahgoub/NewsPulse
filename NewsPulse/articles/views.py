@@ -36,11 +36,13 @@ class LoginView(APIView):
     def post(self, request):
         username = request.data.get("username")
         password = request.data.get("password")
-        selected_role = request.data.get("role")
+        selected_role = request.data.get("role").lower()
 
         user = authenticate(username=username, password=password)
 
         if user is not None:
+            user_role = getattr(user, "role", "").lower()  # lowercase actual role
+
             # Check if selected role matches actual role
             if user.role != selected_role:
                 return Response({"error": "Role mismatch. Please select correct role."},
@@ -49,7 +51,7 @@ class LoginView(APIView):
             token, _ = Token.objects.get_or_create(user=user)
 
             # Decide redirect URL based on role
-            if user.role == "Admin":  
+            if user.role == "admin":  
                 redirect_url = "/admin/dashboard/"
             elif user.role == "author":
                 redirect_url = f"/profile/{user.id}/"

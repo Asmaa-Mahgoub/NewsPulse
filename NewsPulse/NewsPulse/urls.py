@@ -24,7 +24,7 @@ urlpatterns = [
     path('api/', include('news.urls')),
     path('api/auth/', include('articles.urls')),
     path('api/profile/', include('articles.profile_urls')),
-    path('api/', include('articles.urls')), 
+    path('api/', include('articles.urls'))
 ]
 
 if settings.DEBUG:
