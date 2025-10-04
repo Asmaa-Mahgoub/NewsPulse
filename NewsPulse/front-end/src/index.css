@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+:root {
+  --main-color: #cccccc;
+  --second-color: #202124;
+  --third-color: #e63946;
+}
+
+.text-color {
+  @apply text-[var(--second-color)];
+}
+
+.third-color {
+  @apply text-[var(--third-color)];
+}
+
+.layout {
+  @apply py-0;
+}
+
+.categoriesLink {
+  @apply font-semibold hover:text-[var(--third-color)] transition-colors duration-300;
+}
+
+/*bg-gray-800 + text-white + placeholder-gray-40*/
