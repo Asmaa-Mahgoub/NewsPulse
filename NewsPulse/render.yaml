@@ -1,4 +1,4 @@
-services:
+vices:
   - type: web
     name: newspulse
     env: python
@@ -6,7 +6,12 @@ services:
     buildCommand: |
       pip install -r requirements.txt
       python manage.py migrate
-    startCommand: gunicorn NewsPulse.wsgi:application
+    startCommand: 
+
+
     postDeployCommand: |
       python manage.py migrate
       python manage.py createsu
+
+
+
