@@ -1,10 +1,13 @@
 # NewsPulse – Full-Stack News Aggregation & Articles Management Platform
-Project Description
+
+# Project Description
 NewsPulse is a full-stack news platform built with Django REST Framework (backend) and React.js (frontend):
 1.	News API Integration: Fetches and displays latest news from external APIs, supports keyword search, category filtering, and pagination.
 2.	Articles Management: Allows authors/journalists to register, log in, manage their own articles (CRUD), view/edit their profiles, and securely change passwords. Admins have full control over all users and articles.
-The system exposes RESTful API endpoints (Django) and integrates with a React-based frontend for a responsive and engaging user experience.________________________________________
-Table of Contents
+   
+The system exposes RESTful API endpoints (Django) and integrates with a React-based frontend for a responsive and engaging user experience.
+
+# Table of Contents
 •	Features
 •	Front-End Contribution
 •	Back-End Contribution
@@ -16,23 +19,23 @@ Table of Contents
 •	Screenshots
 •	Links
 ________________________________________
-Features
-News Module
+# Features
+# News Module
 •	Fetch latest news articles from external sources.
 •	Keyword-based search and category-based filtering (general, business, entertainment, health, science, sports, technology).
 •	Pagination support for API results.
 •	Structured JSON response for frontend consumption.
-Articles Module
+# Articles Module
 •	User Roles:
 o	Author → Create, update, delete, and view their own articles.
 o	Admin → Manage all articles and users.
-•	Functionalities:
+# Functionalities:
 o	CRUD operations for articles.
 o	Upload media files (images/videos).
 o	Profile management (view/update).
 •	Password management (change).
 ________________________________________
-Front-End Role
+# Front-End Role
 As the Front-End Developer, I was responsible for:
 •	Building the complete UI for all pages.
 •	Connecting the frontend with the Django REST API using Axios.
@@ -40,28 +43,28 @@ As the Front-End Developer, I was responsible for:
 •	Managing API state & caching using TanStack Query.
 •	Developing forms with React Hook Form (with validation).
 •	Ensuring a responsive, user-friendly design with Tailwind CSS.
-📄 Pages Implemented
+# 📄 Pages Implemented
 •	HomePage
 •	CategoryPage
 •	SearchResultPage
 •	UserInfoPage
 •	AdminPage
-⚡ Features Implemented
+# ⚡ Features Implemented
 •	Pagination for articles.
 •	Search bar for querying articles.
 •	Category-based filtering.
 •	Admin capabilities: Add & Edit articles.
 •	Responsive Admin Dashboard.
-🛠️ Challenges Faced
+# 🛠️ Challenges Faced
 •	First-time connecting a React Frontend with a Django API.
 •	Handling Admin route protection.
 •	Responsive Admin Dashboard implementation.
 •	Learning TanStack Query for data caching.
 •	Ensuring proper form validation.
 
-Back-End Contribution
+# Back-End Contribution
 The backend was developed using Django + Django REST Framework (DRF).
-🔹 Features
+# 🔹 Features
 •	REST API for frontend integration.
 •	Token-based authentication (login/logout).
 •	Custom user model with roles (Author / Admin).
@@ -70,7 +73,7 @@ The backend was developed using Django + Django REST Framework (DRF).
 •	Profile management.
 •	Password change support.
 ________________________________________
-⚙️ Installation
+# ⚙️ Installation
 🔹 Backend (Django)
 # Clone repo
 git clone https://github.com/Asmaa-Mahgoub/NewsPulse.git
@@ -109,7 +112,7 @@ npm run dev
 o	Local: http://localhost:5173
 o	Deployed: https://news-pulse.vercel.app
 ________________________________________
-▶ Usage
+# ▶ Usage
 News Module
 •	Get all news: GET /api/news/
 •	Search: GET /api/news/?q=apple
@@ -123,42 +126,42 @@ Articles Module
 •	Profile View/Update: /api/profile/view/, /api/profile/update/
 •	Change Password: POST /api/auth/password-change/
 ________________________________________
-🔐 Authentication & Permissions
+# 🔐 Authentication & Permissions
 •	Token-based authentication: Authorization: Token <user-token>.
 •	Roles:
 o	Author → manage only their own articles.
 o	Admin → full access to all users & articles.
 •	Guests (unauthenticated) → read-only access.
 ________________________________________
-🧰 Tech Stack
-Frontend
-•	React
-•	React Router
-•	TanStack Query
-•	Axios
-•	React Hook Form
-•	React Icons
-•	Tailwind CSS
-Backend
+# 🧰 Tech Stack
+# Frontend
+•	React-UI development
+•	React Router-Page navigation
+•	TanStack Query-State management & data fetching
+•	Axios-API communication
+•	React Hook Form-Form handling & validation
+•	React Icons-Icons and visuals
+•	Tailwind CSS-Styling and responsive layout
+# Backend
 •	Python, Django, DRF
 •	Django Filters
 •	NewsAPI
 •	SQLite
 •	JWT / Token Auth
 ________________________________________
-📸 Screenshots
+# 📸 Screenshots
 •	🏠 Homepage
 •	📂 Category Page
 •	🔎 Search Results
 •	👤 User Profile
 •	🛠️ Admin Dashboard
 ________________________________________
-🔗 Links
+# 🔗 Links
 •	Frontend Live Demo: https://news-pulse.vercel.app
 •	Backend Live Demo: https://newspulse-re0c.onrender.com
 •	Project Repo: https://github.com/Asmaa-Mahgoub/NewsPulse
 ________________________________________
-👥 Contribution
+# 👥 Contribution
 •	Frontend Development: [Mohamed Ayman]
 •	Backend Development: [Asmaa Mahgoub]
 
