@@ -87,14 +87,14 @@ o	Deployed: https://newspulse-re0c.onrender.com
 •	Create/List Articles: POST /api/auth/articles/  
 •	Retrieve/Update/Delete Article: GET/PUT/DELETE /api/auth/articles/<id>/  
 •	Profile View/Update: /api/profile/view/, /api/profile/update/  
-•	Change Password: POST /api/auth/password-change/  
+•	Change Password: POST /api/auth/password-change/    
 
 ## 🔐 Authentication & Permissions
-•	Token-based authentication: Authorization: Token <user-token>.
+•	Token-based authentication: Authorization: Token <user-token>.  
 ## 	Roles:
-o	**Author →** manage only their own articles.
-o	**Admin →** full access to all users & articles.
-o	**Guests (unauthenticated) →** read-only access.
+o	**Author →** manage only their own articles.  
+o	**Admin →** full access to all users & articles.  
+o	**Guests (unauthenticated) →** read-only access.  
 
 # 🧰 Tech Stack
 ## Backend
