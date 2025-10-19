@@ -8,11 +8,13 @@ NewsPulse is a news platform built with Django REST Framework (backend):
 The system exposes RESTful API endpoints (Django) and integrates with a React-based frontend for a responsive and engaging user experience.  
 
 ## Features:
+
 ### News Module:
 •	Fetch latest news articles from external sources.  
 •	Keyword-based search and category-based filtering (general, business, entertainment, health, science, sports, technology).  
 •	Pagination support for API results.  
 •	Structured JSON response for frontend consumption.  
+
 
 ### Articles Module:
 **User Roles:**  
@@ -25,15 +27,14 @@ o	Upload media files (images/videos).
 o	Profile management (view/update).  
 o	Password management (change).  
 
-
-**📄 Pages Implemented**  
+**Pages Implemented**  
 o	HomePage  
 o	CategoryPage  
 o	SearchResultPage  
 o	UserInfoPage  
 o	AdminPage 
 
-**⚡ Features Implemented**  
+**Features Implemented**  
 o	Pagination for articles.  
 o	Search bar for querying articles.  
 o	Category-based filtering.  
@@ -42,7 +43,7 @@ o	Responsive Admin Dashboard.
 
 ## Back-End Contribution
 The backend was developed using Django + Django REST Framework (DRF).  
-### 🔹 Features  
+### Features  
 o	REST API for frontend integration.  
 o	Token-based authentication (login/logout).  
 o	Custom user model with roles (Author / Admin).  
