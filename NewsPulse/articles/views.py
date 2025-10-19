@@ -30,11 +30,11 @@ class ArticleListAPIView(APIView):
 
 # Create your views here.
 
-""" class SignUpView(generics.CreateAPIView):
+class SignUpView(generics.CreateAPIView):
     queryset= CustomUser.objects.all()
     serializer_class=CustomUserSerializer
     permission_classes = [AllowAny]
- """
+ 
 
 #Login view
 class LoginView(APIView):
