@@ -15,101 +15,105 @@ The system exposes RESTful API endpoints (Django) and integrates with a React-ba
 •	Structured JSON response for frontend consumption.  
 
 ### Articles Module:
-**User Roles:**
+**User Roles:**  
 o	**Author →** Create, update, delete, and view their own articles.  
 o	**Admin →** Manage all articles and users.  
 
-**Functionalities:**
+**Functionalities:**  
 o	CRUD operations for articles.  
 o	Upload media files (images/videos).  
 o	Profile management (view/update).  
-•	Password management (change).  
+o	Password management (change).  
 
 
-**📄 Pages Implemented**
-•	HomePage  
-•	CategoryPage  
-•	SearchResultPage  
-•	UserInfoPage  
-•	AdminPage  
-**⚡ Features Implemented**
-•	Pagination for articles.  
-•	Search bar for querying articles.  
-•	Category-based filtering.  
-•	Admin capabilities: Add & Edit articles.  
-•	Responsive Admin Dashboard.  
+**📄 Pages Implemented**  
+o	HomePage  
+o	CategoryPage  
+o	SearchResultPage  
+o	UserInfoPage  
+o	AdminPage 
+
+**⚡ Features Implemented**  
+o	Pagination for articles.  
+o	Search bar for querying articles.  
+o	Category-based filtering.  
+o	Admin capabilities: Add & Edit articles.  
+o	Responsive Admin Dashboard.  
 
 ## Back-End Contribution
 The backend was developed using Django + Django REST Framework (DRF).  
 ### 🔹 Features  
-•	REST API for frontend integration.  
-•	Token-based authentication (login/logout).  
-•	Custom user model with roles (Author / Admin).  
-•	CRUD for articles with ownership restrictions.  
-•	Search and filter for articles.  
-•	Profile management.  
-•	Password change support.  
+o	REST API for frontend integration.  
+o	Token-based authentication (login/logout).  
+o	Custom user model with roles (Author / Admin).  
+o	CRUD for articles with ownership restrictions.  
+o	Search and filter for articles.  
+o	Profile management.  
+o	Password change support.  
 
 ## ⚙️ Installation
 🔹 Backend (Django)  
-## Clone repo
+**Clone repo**  
 git clone https://github.com/Asmaa-Mahgoub/NewsPulse.git  
 cd NewsPulse  
 
-## Create virtual environment
+**Create virtual environment**  
 python -m venv venv  
 source venv/Scripts/activate  # (Windows)  
 source venv/bin/activate      # (Linux/Mac)  
 
-## Install dependencies
+**Install dependencies**  
 pip install -r requirements.txt  
 
-## Run migrations
+**Run migrations**  
 python manage.py migrate  
 
-## Create superuser
+**Create superuser**  
 python manage.py createsuperuser  
 
-## Start server
+**Start server**  
 python manage.py runserver  
 •	Access at:
 o	Local: http://127.0.0.1:8000  
 o	Deployed: https://newspulse-re0c.onrender.com  
 
-## ▶ Usage
-### News Module
-•	Get all news: GET /api/news/  
-•	Search: GET /api/news/?q=apple  
-•	Filter by category: GET /api/news/?category=technology  
-•	Pagination: GET /api/news/?page=2  
-### Articles Module
-•	Login: POST /api/auth/login/  
-•	Logout: POST /api/auth/logout/  
-•	Create/List Articles: POST /api/auth/articles/  
-•	Retrieve/Update/Delete Article: GET/PUT/DELETE /api/auth/articles/<id>/  
-•	Profile View/Update: /api/profile/view/, /api/profile/update/  
-•	Change Password: POST /api/auth/password-change/    
+**▶ Usage**  
 
-## 🔐 Authentication & Permissions
-•	Token-based authentication: Authorization: Token <user-token>.  
-## 	Roles:
+**News Module**  
+o	Get all news: GET /api/news/  
+o	Search: GET /api/news/?q=apple  
+o	Filter by category: GET /api/news/?category=technology  
+o	Pagination: GET /api/news/?page=2 
+
+**Articles Module**  
+o	Login: POST /api/auth/login/  
+o	Logout: POST /api/auth/logout/  
+o	Create/List Articles: POST /api/auth/articles/  
+o	Retrieve/Update/Delete Article: GET/PUT/DELETE /api/auth/articles/<id>/  
+o	Profile View/Update: /api/profile/view/, /api/profile/update/  
+o	Change Password: POST /api/auth/password-change/    
+
+**🔐 Authentication & Permissions**    
+o	Token-based authentication: Authorization: Token <user-token>.
+
+**Roles:**    
 o	**Author →** manage only their own articles.  
 o	**Admin →** full access to all users & articles.  
 o	**Guests (unauthenticated) →** read-only access.  
 
-# 🧰 Tech Stack
-## Backend
-•	Python, Django, DRF  
-•	Django Filters  
-•	NewsAPI  
-•	SQLite  
-•	JWT / Token Auth    
+## 🧰 Tech Stack
+**Backend**  
+o	Python, Django, DRF  
+o	Django Filters  
+o	NewsAPI  
+o	SQLite  
+o	JWT / Token Auth    
 
-## 🔗 Links
-•	Frontend Live Demo: https://news-pulse-alx.netlify.app/  
-•	Backend Live Demo: https://newspulse-re0c.onrender.com  
-•	Project Repo: https://github.com/Asmaa-Mahgoub/NewsPulse  
+**🔗 Links**  
+o	Frontend Live Demo: https://news-pulse-alx.netlify.app/  
+o	Backend Live Demo: https://newspulse-re0c.onrender.com  
+o	Project Repo: https://github.com/Asmaa-Mahgoub/NewsPulse  
 
-## 👥 Contribution
-•	Backend Development: [Asmaa Mahgoub]  
+**👥 Contribution**    
+o	Backend Development: [Asmaa Mahgoub]  
 
