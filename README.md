@@ -1,9 +1,9 @@
 # NewsPulse – Full-Stack News Aggregation & Articles Management Platform
 
-# Project Description
+## Project Description
 NewsPulse is a full-stack news platform built with Django REST Framework (backend) and React.js (frontend):
-1.	News API Integration: Fetches and displays latest news from external APIs, supports keyword search, category filtering, and pagination.
-2.	Articles Management: Allows authors/journalists to register, log in, manage their own articles (CRUD), view/edit their profiles, and securely change passwords. Admins have full control over all users and articles.
+1.	**News API Integration**: Fetches and displays latest news from external APIs, supports keyword search, category filtering, and pagination.
+2.	**Articles Management**: Allows authors/journalists to register, log in, manage their own articles (CRUD), view/edit their profiles, and securely change passwords. Admins have full control over all users and articles.
    
 The system exposes RESTful API endpoints (Django) and integrates with a React-based frontend for a responsive and engaging user experience.
 
@@ -18,18 +18,18 @@ The system exposes RESTful API endpoints (Django) and integrates with a React-ba
 •	Technologies
 •	Screenshots
 •	Links
-________________________________________
-# Features
-# News Module
+
+## Features
+### News Module
 •	Fetch latest news articles from external sources.
 •	Keyword-based search and category-based filtering (general, business, entertainment, health, science, sports, technology).
 •	Pagination support for API results.
 •	Structured JSON response for frontend consumption.
-# Articles Module
+### Articles Module
 •	User Roles:
 o	Author → Create, update, delete, and view their own articles.
 o	Admin → Manage all articles and users.
-# Functionalities:
+### Functionalities:
 o	CRUD operations for articles.
 o	Upload media files (images/videos).
 o	Profile management (view/update).
@@ -55,12 +55,6 @@ As the Front-End Developer, I was responsible for:
 •	Category-based filtering.
 •	Admin capabilities: Add & Edit articles.
 •	Responsive Admin Dashboard.
-# 🛠️ Challenges Faced
-•	First-time connecting a React Frontend with a Django API.
-•	Handling Admin route protection.
-•	Responsive Admin Dashboard implementation.
-•	Learning TanStack Query for data caching.
-•	Ensuring proper form validation.
 
 # Back-End Contribution
 The backend was developed using Django + Django REST Framework (DRF).
@@ -112,13 +106,13 @@ npm run dev
 o	Local: http://localhost:5173
 o	Deployed: https://news-pulse.vercel.app
 ________________________________________
-# ▶ Usage
-News Module
+## ▶ Usage
+### News Module
 •	Get all news: GET /api/news/
 •	Search: GET /api/news/?q=apple
 •	Filter by category: GET /api/news/?category=technology
 •	Pagination: GET /api/news/?page=2
-Articles Module
+### Articles Module
 •	Login: POST /api/auth/login/
 •	Logout: POST /api/auth/logout/
 •	Create/List Articles: POST /api/auth/articles/
@@ -134,34 +128,18 @@ o	Admin → full access to all users & articles.
 •	Guests (unauthenticated) → read-only access.
 ________________________________________
 # 🧰 Tech Stack
-# Frontend
-•	React-UI development
-•	React Router-Page navigation
-•	TanStack Query-State management & data fetching
-•	Axios-API communication
-•	React Hook Form-Form handling & validation
-•	React Icons-Icons and visuals
-•	Tailwind CSS-Styling and responsive layout
-# Backend
-•	Python, Django, DRF
-•	Django Filters
-•	NewsAPI
-•	SQLite
-•	JWT / Token Auth
-________________________________________
-# 📸 Screenshots
-•	🏠 Homepage
-•	📂 Category Page
-•	🔎 Search Results
-•	👤 User Profile
-•	🛠️ Admin Dashboard
-________________________________________
-# 🔗 Links
-•	Frontend Live Demo: https://news-pulse.vercel.app
-•	Backend Live Demo: https://newspulse-re0c.onrender.com
-•	Project Repo: https://github.com/Asmaa-Mahgoub/NewsPulse
-________________________________________
-# 👥 Contribution
-•	Frontend Development: [Mohamed Ayman]
-•	Backend Development: [Asmaa Mahgoub]
+## Backend
+•	Python, Django, DRF  
+•	Django Filters  
+•	NewsAPI  
+•	SQLite  
+•	JWT / Token Auth    
+
+## 🔗 Links
+•	Frontend Live Demo: https://news-pulse.vercel.app  
+•	Backend Live Demo: https://newspulse-re0c.onrender.com  
+•	Project Repo: https://github.com/Asmaa-Mahgoub/NewsPulse  
+
+## 👥 Contribution
+•	Backend Development: [Asmaa Mahgoub]  
 
