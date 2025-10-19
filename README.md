@@ -52,7 +52,7 @@ o	Profile management.
 o	Password change support.  
 
 ## ⚙️ Installation
-🔹 Backend (Django)  
+**Backend (Django)**    
 **Clone repo**  
 git clone https://github.com/Asmaa-Mahgoub/NewsPulse.git  
 cd NewsPulse  
@@ -73,7 +73,7 @@ python manage.py createsuperuser
 
 **Start server**  
 python manage.py runserver  
-•	Access at:
+•	Access at:  
 o	Local: http://127.0.0.1:8000  
 o	Deployed: https://newspulse-re0c.onrender.com  
 
