@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'news',
     'corsheaders',
     'articles',
+    'pages',
 ]
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -74,7 +75,7 @@ ROOT_URLCONF = 'NewsPulse.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],  # A list of folders where Django will also look for templates
+        'DIRS': [BASE_DIR/'templates'],  # A list of folders where Django will also look for templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
