@@ -1,37 +1,38 @@
-# NewsPulse – Full-Stack News Aggregation & Articles Management Platform
+# NewsPulse – News Aggregation & Articles Management Platform
 
 ## Project Description
-NewsPulse is a full-stack news platform built with Django REST Framework (backend) and React.js (frontend):  
+NewsPulse is a news platform built with Django REST Framework (backend):  
 1.	**News API Integration**: Fetches and displays latest news from external APIs, supports keyword search, category filtering, and pagination.  
 2.	**Articles Management**: Allows authors/journalists to register, log in, manage their own articles (CRUD), view/edit their profiles, and securely change passwords. Admins have full control over all users and articles.  
    
 The system exposes RESTful API endpoints (Django) and integrates with a React-based frontend for a responsive and engaging user experience.  
 
-## Features
-### News Module
+## Features:
+### News Module:
 •	Fetch latest news articles from external sources.  
 •	Keyword-based search and category-based filtering (general, business, entertainment, health, science, sports, technology).  
 •	Pagination support for API results.  
 •	Structured JSON response for frontend consumption.  
 
-### Articles Module
-•	User Roles:  
-o	Author → Create, update, delete, and view their own articles.  
-o	Admin → Manage all articles and users.  
-### Functionalities:
+### Articles Module:
+**User Roles:**
+o	**Author →** Create, update, delete, and view their own articles.  
+o	**Admin →** Manage all articles and users.  
+
+**Functionalities:**
 o	CRUD operations for articles.  
 o	Upload media files (images/videos).  
 o	Profile management (view/update).  
 •	Password management (change).  
 
 
-## 📄 Pages Implemented
+**📄 Pages Implemented**
 •	HomePage  
 •	CategoryPage  
 •	SearchResultPage  
 •	UserInfoPage  
 •	AdminPage  
-## ⚡ Features Implemented
+**⚡ Features Implemented**
 •	Pagination for articles.  
 •	Search bar for querying articles.  
 •	Category-based filtering.  
@@ -40,7 +41,7 @@ o	Profile management (view/update).
 
 ## Back-End Contribution
 The backend was developed using Django + Django REST Framework (DRF).  
-## 🔹 Features  
+### 🔹 Features  
 •	REST API for frontend integration.  
 •	Token-based authentication (login/logout).  
 •	Custom user model with roles (Author / Admin).  
